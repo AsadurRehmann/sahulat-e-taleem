@@ -18,10 +18,3 @@ Sahulat-e-Taleem is a full-stack web application designed to bridge the informat
 - **Backend/Database**: Supabase (PostgreSQL)
 - **Authentication**: Supabase Auth (JWT)
 
-## Getting Started
-
-### Installation
-1. Clone the repository:
-   ```sh
-   git clone [https://github.com/AsadurRehmann/Sahulat-e-Taleem.git](https://github.com/AsadurRehmann/Sahulat-e-Taleem.git)
-   cd Sahulat-e-Taleem
