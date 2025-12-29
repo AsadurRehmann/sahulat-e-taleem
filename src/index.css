@@ -1,0 +1,295 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Emerald/Gold Theme - Pakistani National Identity */
+    --background: 210 20% 98%;
+    --foreground: 164 60% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 164 60% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 164 60% 15%;
+
+    /* Deep Emerald Green - Primary */
+    --primary: 164 80% 20%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 164 10% 95%;
+    --secondary-foreground: 164 60% 20%;
+
+    --muted: 210 15% 93%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Soft Amber/Gold - Accent */
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Warning Orange for Urgent Deadlines */
+    --warning: 25 95% 53%;
+    --warning-foreground: 0 0% 100%;
+
+    --success: 164 70% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 220 13% 87%;
+    --input: 220 13% 91%;
+    --ring: 164 80% 20%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 164 60% 15%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 38 92% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 164 50% 25%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 164 50% 25%;
+    --sidebar-ring: 38 92% 50%;
+
+    /* Custom Sahulat-e-Taleem tokens */
+    --brand-gold: 38 92% 50%;
+    --brand-emerald: 164 80% 20%;
+    --deadline-urgent: 0 84% 60%;
+    --deadline-warning: 25 95% 53%;
+    --hero-gradient-start: 164 60% 12%;
+    --hero-gradient-end: 164 75% 22%;
+  }
+
+  .dark {
+    --background: 164 50% 6%;
+    --foreground: 210 20% 95%;
+
+    --card: 164 45% 10%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 164 45% 10%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 164 70% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 164 40% 15%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 164 40% 18%;
+    --muted-foreground: 215 16% 60%;
+
+    --accent: 38 85% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 164 40% 18%;
+    --input: 164 40% 18%;
+    --ring: 164 70% 40%;
+
+    --sidebar-background: 164 50% 8%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 38 85% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 164 40% 15%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 164 40% 15%;
+    --sidebar-ring: 38 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--hero-gradient-start)) 0%, hsl(var(--hero-gradient-end)) 100%);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply shadow-card-hover -translate-y-1;
+  }
+
+  .deadline-urgent {
+    @apply bg-destructive text-destructive-foreground;
+  }
+
+  .deadline-warning {
+    @apply bg-warning text-warning-foreground;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md bg-card/80;
+  }
+
+  /* Islamic Geometric Pattern Background */
+  .islamic-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .network-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(255,255,255,0.08) 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Gold gradient for buttons */
+  .gold-gradient {
+    background: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(32 95% 44%) 100%);
+  }
+
+  /* Emerald gradient for buttons */
+  .emerald-gradient {
+    background: linear-gradient(135deg, hsl(164 80% 25%) 0%, hsl(164 80% 18%) 100%);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+
+  .animate-counter {
+    animation: counterUp 2s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes pulseSoft {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes counterUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .skeleton {
+    @apply bg-gradient-to-r from-muted via-muted/50 to-muted bg-[length:200%_100%] animate-[shimmer_1.5s_ease-in-out_infinite];
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+
+  /* Pill badge styles */
+  .badge-pill {
+    @apply rounded-full px-3 py-1 text-xs font-semibold;
+  }
+}
+
+@layer components {
+  /* Skeleton loader components */
+  .skeleton-card {
+    @apply rounded-2xl border border-border bg-card p-6 space-y-4;
+  }
+  
+  .skeleton-line {
+    @apply h-4 rounded-lg skeleton;
+  }
+  
+  .skeleton-circle {
+    @apply rounded-full skeleton;
+  }
+}
